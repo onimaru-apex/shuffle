@@ -37,7 +37,8 @@ async def team_norem(ctx, specified_num=2):
 # メンバー数を指定してチーム分け
 @bot.command(pass_context = True)
 async def group(ctx, specified_num=1):
-    deleted = await ctx.channel.purge(limit=100, after='2021-01-01')
+    deledate = datetime.fromisoformat('2011-11-04')
+    deleted = await ctx.channel.purge(limit=100, after=deledate)
     make_team = MakeTeam()
     msg = make_team.make_specified_len(ctx,specified_num)
     await ctx.channel.send(msg)
