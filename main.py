@@ -41,7 +41,7 @@ async def group(ctx, specified_num=1):
     number = 10
     msgs = [msg async for msg in bot.logs_from(ctx.message.channel, limit=number)]
     # msgs = [msg async for msg in bot.logs_from(ctx.message.channel, limit=10)]
-    await bot.delete_messages(msgs)
+    #await bot.delete_messages(msgs)
     
     msg = make_team.make_specified_len(ctx,specified_num)
     await ctx.channel.send(msg)
