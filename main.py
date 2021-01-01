@@ -35,11 +35,11 @@ async def team_norem(ctx, specified_num=2):
     await ctx.channel.send(msg)
 
 # メンバー数を指定してチーム分け
-@bot.command()
+@bot.command(pass_context = True)
 async def group(ctx, specified_num=1):
     make_team = MakeTeam()
-    
-    msgs = [msg async for msg in Client.logs_from(ctx.message.channel, limit=10)]
+    number = 10
+    msgs = [msg async for msg in bot.logs_from(ctx.message.channel, limit=number)]
     # msgs = [msg async for msg in bot.logs_from(ctx.message.channel, limit=10)]
     await bot.delete_messages(msgs)
     
