@@ -38,8 +38,8 @@ async def team_norem(ctx, specified_num=2):
 @bot.command(pass_context = True)
 async def group(ctx, specified_num=1):
     make_team = MakeTeam()
-    deleted = await channel.purge(limit=100)
-    await channel.send('Deleted {} message(s)'.format(len(deleted)))
+    deleted = await ctx.channel.purge(limit=100)
+    await ctx.channel.send('Deleted {} message(s)'.format(len(deleted)))
     
     msg = make_team.make_specified_len(ctx,specified_num)
     await ctx.channel.send(msg)
