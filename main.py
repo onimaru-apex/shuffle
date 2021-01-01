@@ -39,7 +39,7 @@ async def team_norem(ctx, specified_num=2):
 async def group(ctx, specified_num=1):
     make_team = MakeTeam()
     number = 10
-    msgs = [msg async for msg in ctx.Messageable.history(ctx.message.channel, limit=number)]
+    msgs = [msg async for msg in ctx.Messageable.history(limit=number)]
     #await bot.delete_messages(msgs)
     
     msg = make_team.make_specified_len(ctx,specified_num)
