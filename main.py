@@ -38,8 +38,11 @@ async def team_norem(ctx, specified_num=2):
 @bot.command()
 async def group(ctx, specified_num=1):
     make_team = MakeTeam()
-    msg = make_team.make_specified_len(ctx,specified_num)
     
+    msgs = [msg async for msg in bot.logs_from(ctx.channel, limit=(10))]
+    await bot.delete_messages(msgs)
+    
+    msg = make_team.make_specified_len(ctx,specified_num)
     await ctx.channel.send(msg)
 
 """botの接続と起動"""
